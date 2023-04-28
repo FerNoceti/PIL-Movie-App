@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MovieApp</string>
     <string name="test">TEST</string>
+
+    <string name="card_id">ID: %1$s</string>
+    <string name="card_title">Title: %1$s</string>
 </resources>
