@@ -1,18 +1,17 @@
-package com.pil.retrofit_room.service
+package com.pil.movieapp.service
 
-import com.pil.movieapp.service.MovieClient
 import com.pil.movieapp.service.model.MovieList
 import com.pil.movieapp.util.CoroutineResult
 
 interface MovieService {
-    suspend fun getExercises(): CoroutineResult<MovieList>
+    suspend fun getMovies(page: Int? = null): CoroutineResult<MovieList>
 }
 
 class MovieServiceImpl(private val client: MovieClient) : MovieService {
 
-    override suspend fun getExercises(): CoroutineResult<MovieList> {
+    override suspend fun getMovies(page: Int?): CoroutineResult<MovieList> {
         try {
-            val response = client.getInitialData().execute()
+            val response = client.getData(page).execute()
             if (response.isSuccessful) {
                 response.body()?.let {
                     return CoroutineResult.Success(it)

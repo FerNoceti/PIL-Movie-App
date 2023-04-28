@@ -3,11 +3,9 @@ package com.pil.movieapp.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.pil.movieapp.adapter.MovieAdapter
-import com.pil.movieapp.database.MovieDataBase
 import com.pil.movieapp.database.MovieDataBaseImplementation
 import com.pil.movieapp.database.MoviesRoomDataBase
 import com.pil.movieapp.databinding.ActivityMainBinding
@@ -17,8 +15,7 @@ import com.pil.movieapp.service.MovieRequestGenerator
 import com.pil.movieapp.mvvm.model.MainModel
 import com.pil.movieapp.mvvm.viewmodel.MainViewModel
 import com.pil.movieapp.mvvm.viewmodel.factory.ViewModelFactory
-import com.pil.retrofit_room.service.MovieServiceImpl
-import kotlin.math.log
+import com.pil.movieapp.service.MovieServiceImpl
 
 class MainActivity : AppCompatActivity() {
 

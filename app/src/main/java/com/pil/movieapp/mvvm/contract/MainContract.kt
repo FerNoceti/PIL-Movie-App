@@ -8,7 +8,7 @@ import kotlinx.coroutines.Job
 
 interface MainContract {
     interface Model {
-        suspend fun getMovies(): CoroutineResult<List<Movie>>
+        suspend fun getMovies(page: Int? = null): CoroutineResult<List<Movie>>
     }
 
     interface ViewModel {
