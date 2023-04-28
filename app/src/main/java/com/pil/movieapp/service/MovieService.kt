@@ -12,7 +12,7 @@ class MovieServiceImpl(private val client: MovieClient) : MovieService {
 
     override suspend fun getExercises(): CoroutineResult<MovieList> {
         try {
-            val response = client.getData().execute()
+            val response = client.getInitialData().execute()
             if (response.isSuccessful) {
                 response.body()?.let {
                     return CoroutineResult.Success(it)

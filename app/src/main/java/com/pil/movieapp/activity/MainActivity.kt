@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
         )[MainViewModel::class.java]
 
         viewModel.getValue().observe(this) { updateUI(it) }
+
+        binding.button.setOnClickListener{ viewModel.callService() }
     }
 
     private fun updateUI(data: MainViewModel.MainData) {
@@ -64,6 +66,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.callService()
     }
 }
