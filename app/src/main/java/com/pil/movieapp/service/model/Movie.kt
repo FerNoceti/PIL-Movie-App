@@ -23,4 +23,4 @@ data class Movie(
     var voteAverage: Float,
     @SerializedName("vote_count")
     var voteCount: Int,
-    )
+)

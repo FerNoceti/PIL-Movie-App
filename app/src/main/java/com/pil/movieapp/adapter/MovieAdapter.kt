@@ -27,8 +27,11 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
         fun bind(movie: Movie) {
             binding.id.text = itemView.context.getString(R.string.card_id, movie.id.toString())
             binding.title.text = itemView.context.getString(R.string.card_title, movie.title)
+            binding.overview.text = itemView.context.getString(R.string.card_overview, movie.overview)
 
+            Glide.with(itemView.context)
+                .load(itemView.context.getString(R.string.card_poster_path, movie.posterPath))
+                .into(binding.image)
         }
     }
-
 }

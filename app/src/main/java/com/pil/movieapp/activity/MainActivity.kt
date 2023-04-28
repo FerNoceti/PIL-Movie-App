@@ -10,11 +10,11 @@ import com.pil.movieapp.database.MovieDataBaseImplementation
 import com.pil.movieapp.database.MoviesRoomDataBase
 import com.pil.movieapp.databinding.ActivityMainBinding
 import com.pil.movieapp.mvvm.contract.MainContract
-import com.pil.movieapp.service.MovieClient
-import com.pil.movieapp.service.MovieRequestGenerator
 import com.pil.movieapp.mvvm.model.MainModel
 import com.pil.movieapp.mvvm.viewmodel.MainViewModel
 import com.pil.movieapp.mvvm.viewmodel.factory.ViewModelFactory
+import com.pil.movieapp.service.MovieClient
+import com.pil.movieapp.service.MovieRequestGenerator
 import com.pil.movieapp.service.MovieServiceImpl
 
 class MainActivity : AppCompatActivity() {
@@ -48,20 +48,30 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getValue().observe(this) { updateUI(it) }
 
-        binding.button.setOnClickListener{ viewModel.callService() }
+        binding.button.setOnClickListener { viewModel.callService() }
+        binding.buttonClear.setOnClickListener { viewModel.clear() }
+        binding.buttonPage.setOnClickListener { viewModel.callService(getPage()) }
     }
 
     private fun updateUI(data: MainViewModel.MainData) {
         when (data.status) {
+            MainViewModel.MainStatus.INITIAL -> {
+                binding.recycler.adapter = null
+                binding.recycler.layoutManager = null
+            }
             MainViewModel.MainStatus.SHOW_INFO -> {
                 binding.recycler.layoutManager = LinearLayoutManager(this)
                 binding.recycler.adapter = MovieAdapter(data.movies)
-
+            }
+            MainViewModel.MainStatus.ERROR -> {
+                binding.recycler.adapter = null
+                binding.recycler.layoutManager = null
             }
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    private fun getPage(): Int {
+        val page = binding.pageSelector.text.toString().toIntOrNull()
+        return if (page != null && page in 1..50) page else 1
     }
 }

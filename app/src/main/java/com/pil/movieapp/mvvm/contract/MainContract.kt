@@ -14,5 +14,7 @@ interface MainContract {
     interface ViewModel {
         fun getValue(): LiveData<MainViewModel.MainData>
         fun callService(): Job
+        fun callService(page: Int): Job
+        fun clear()
     }
 }

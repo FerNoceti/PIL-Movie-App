@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="@android:color/darker_gray"
+    android:background="@color/purple_200"
+    android:padding="10sp"
     android:elevation="10dp"
     tools:context=".activity.MainActivity">
 
@@ -21,10 +22,34 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/id"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Title: title" />
+        tools:text="Title: title"
+        />
+
+    <TextView
+        android:id="@+id/overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/id"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Overview: overview"
+        />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_marginTop="10sp"
+        android:contentDescription="Image of the movie"
+        app:layout_constraintEnd_toEndOf="@id/overview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/overview"
+
+        />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

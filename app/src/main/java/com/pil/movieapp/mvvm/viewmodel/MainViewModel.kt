@@ -24,10 +24,31 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
                     mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
                 }
                 is CoroutineResult.Failure -> {
-                    // TODO: Check what to do here
+                    mutableLiveData.value = MainData(MainStatus.ERROR, emptyList())
                 }
             }
-        }}
+        }
+    }
+
+    override fun callService(page: Int): Job {
+        return viewModelScope.launch {
+            withContext(Dispatchers.IO) { model.getMovies(page) }.let { result ->
+                when (result) {
+                    is CoroutineResult.Success -> {
+                        mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
+                    }
+                    is CoroutineResult.Failure -> {
+                        mutableLiveData.value = MainData(MainStatus.ERROR, emptyList())
+                    }
+                }
+            }
+        }
+    }
+
+
+    override fun clear() {
+        mutableLiveData.value = MainData(MainStatus.INITIAL, emptyList())
+    }
 
     data class MainData(
         val status: MainStatus,
@@ -35,6 +56,8 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
     )
 
     enum class MainStatus {
+        ERROR,
+        INITIAL,
         SHOW_INFO,
     }
 }
