@@ -1,20 +1,19 @@
 package com.pil.movieapp.mvvm.contract
 
 import androidx.lifecycle.LiveData
-import com.pil.movieapp.mvvm.viewmodel.MainViewModel
+import com.pil.movieapp.mvvm.viewmodel.MovieViewModel
 import com.pil.movieapp.service.model.Movie
 import com.pil.movieapp.util.CoroutineResult
 import kotlinx.coroutines.Job
 
-interface MainContract {
+interface MovieContract {
     interface Model {
-        suspend fun getMovies(page: Int? = null): CoroutineResult<List<Movie>>
+        suspend fun getMovies(): CoroutineResult<List<Movie>>
     }
 
     interface ViewModel {
-        fun getValue(): LiveData<MainViewModel.MainData>
+        fun getValue(): LiveData<MovieViewModel.MainData>
         fun callService(): Job
-        fun callService(page: Int): Job
-        fun clear()
+        fun goBack()
     }
 }

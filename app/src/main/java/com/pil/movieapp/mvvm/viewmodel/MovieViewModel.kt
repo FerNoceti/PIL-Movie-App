@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pil.movieapp.mvvm.contract.MainContract
+import com.pil.movieapp.mvvm.contract.MovieContract
 import com.pil.movieapp.service.model.Movie
 import com.pil.movieapp.util.CoroutineResult
 import kotlinx.coroutines.Dispatchers
@@ -12,27 +12,14 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainContract.ViewModel {
+class MovieViewModel(private val model: MovieContract.Model) : ViewModel(), MovieContract.ViewModel {
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
     override fun getValue(): LiveData<MainData> = mutableLiveData
 
-    override fun callService() = viewModelScope.launch {
-        withContext(Dispatchers.IO) { model.getMovies() }.let { result ->
-            when (result) {
-                is CoroutineResult.Success -> {
-                    mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
-                }
-                is CoroutineResult.Failure -> {
-                    mutableLiveData.value = MainData(MainStatus.ERROR, emptyList())
-                }
-            }
-        }
-    }
-
-    override fun callService(page: Int): Job {
+    override fun callService(): Job {
         return viewModelScope.launch {
-            withContext(Dispatchers.IO) { model.getMovies(page) }.let { result ->
+            withContext(Dispatchers.IO) { model.getMovies() }.let { result ->
                 when (result) {
                     is CoroutineResult.Success -> {
                         mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
@@ -45,9 +32,8 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
         }
     }
 
-
-    override fun clear() {
-        mutableLiveData.value = MainData(MainStatus.INITIAL, emptyList())
+    override fun goBack() {
+        mutableLiveData.value = MainData(MainStatus.GO_BACK, emptyList())
     }
 
     data class MainData(
@@ -59,5 +45,6 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
         ERROR,
         INITIAL,
         SHOW_INFO,
+        GO_BACK,
     }
 }

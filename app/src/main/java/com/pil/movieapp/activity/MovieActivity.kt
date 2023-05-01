@@ -8,24 +8,24 @@ import androidx.room.Room
 import com.pil.movieapp.adapter.MovieAdapter
 import com.pil.movieapp.database.MovieDataBaseImplementation
 import com.pil.movieapp.database.MoviesRoomDataBase
-import com.pil.movieapp.databinding.ActivityMainBinding
-import com.pil.movieapp.mvvm.contract.MainContract
-import com.pil.movieapp.mvvm.model.MainModel
-import com.pil.movieapp.mvvm.viewmodel.MainViewModel
+import com.pil.movieapp.databinding.ActivityMovieBinding
+import com.pil.movieapp.mvvm.contract.MovieContract
+import com.pil.movieapp.mvvm.model.MovieModel
+import com.pil.movieapp.mvvm.viewmodel.MovieViewModel
 import com.pil.movieapp.mvvm.viewmodel.factory.ViewModelFactory
 import com.pil.movieapp.service.MovieClient
 import com.pil.movieapp.service.MovieRequestGenerator
 import com.pil.movieapp.service.MovieServiceImpl
 
-class MainActivity : AppCompatActivity() {
+class MovieActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainContract.ViewModel
+    private lateinit var binding: ActivityMovieBinding
+    private lateinit var viewModel: MovieContract.ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val dataBase: MoviesRoomDataBase by lazy {
@@ -38,40 +38,42 @@ class MainActivity : AppCompatActivity() {
             this,
             ViewModelFactory(
                 arrayOf(
-                    MainModel(
+                    MovieModel(
                         MovieServiceImpl(MovieRequestGenerator.createService(MovieClient::class.java)),
                         MovieDataBaseImplementation(dataBase.movieDao()),
                     ),
                 ),
             ),
-        )[MainViewModel::class.java]
+        )[MovieViewModel::class.java]
 
         viewModel.getValue().observe(this) { updateUI(it) }
 
-        binding.button.setOnClickListener { viewModel.callService() }
-        binding.buttonClear.setOnClickListener { viewModel.clear() }
-        binding.buttonPage.setOnClickListener { viewModel.callService(getPage()) }
+        binding.buttonBack.setOnClickListener { viewModel.goBack() }
     }
 
-    private fun updateUI(data: MainViewModel.MainData) {
+    override fun onResume() {
+        super.onResume()
+        viewModel.callService()
+    }
+
+    private fun updateUI(data: MovieViewModel.MainData) {
         when (data.status) {
-            MainViewModel.MainStatus.INITIAL -> {
+            MovieViewModel.MainStatus.INITIAL -> {
                 binding.recycler.adapter = null
                 binding.recycler.layoutManager = null
             }
-            MainViewModel.MainStatus.SHOW_INFO -> {
+            MovieViewModel.MainStatus.SHOW_INFO -> {
                 binding.recycler.layoutManager = LinearLayoutManager(this)
                 binding.recycler.adapter = MovieAdapter(data.movies)
             }
-            MainViewModel.MainStatus.ERROR -> {
+            MovieViewModel.MainStatus.ERROR -> {
+                // TODO: show error
                 binding.recycler.adapter = null
                 binding.recycler.layoutManager = null
             }
+            MovieViewModel.MainStatus.GO_BACK -> {
+                finish()
+            }
         }
-    }
-
-    private fun getPage(): Int {
-        val page = binding.pageSelector.text.toString().toIntOrNull()
-        return if (page != null && page in 1..50) page else 1
     }
 }

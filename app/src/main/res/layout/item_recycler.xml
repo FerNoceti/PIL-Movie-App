@@ -7,7 +7,7 @@
     android:layout_marginBottom="3dp"
     android:background="#eee"
     android:padding="10dp"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MovieActivity">
 
     <TextView
         android:id="@+id/id"

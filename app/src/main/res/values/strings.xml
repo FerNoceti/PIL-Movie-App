@@ -17,4 +17,6 @@
     <string name="search_with_page">search with page</string>
     <string name="enter_a_number">Enter a number</string>
     <string name="image_desc">Image of the movie</string>
+    <string name="description">Description</string>
+    <string name="button_movies_text">Back</string>
 </resources>
