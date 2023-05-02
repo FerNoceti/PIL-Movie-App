@@ -25,11 +25,10 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
         private val binding = ItemRecyclerBinding.bind(itemView)
 
         fun bind(movie: Movie) {
-            binding.id.text = itemView.context.getString(R.string.card_id, movie.id.toString())
-            binding.title.text = itemView.context.getString(R.string.card_title, movie.title)
+            binding.title.text = movie.title
             binding.overview.text = itemView.context.getString(R.string.card_overview, movie.overview)
             binding.date.text = itemView.context.getString(R.string.card_release_date, movie.releaseDate)
-            binding.voteAverage.text = itemView.context.getString(R.string.card_vote_average, movie.voteAverage.toString())
+            binding.voteAverage.text = movie.voteAverage.toString()
             binding.voteAverage.setTextColor(calculateColor(movie.voteAverage))
 
             Glide.with(itemView.context)

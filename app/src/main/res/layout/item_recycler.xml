@@ -10,47 +10,36 @@
     tools:context=".activity.MovieActivity">
 
     <TextView
-        android:id="@+id/id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:padding="3dp"
-        android:textColor="#111"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/image"
-        app:layout_constraintTop_toTopOf="@+id/image"
-        tools:text="ID: id" />
-
-    <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:padding="3dp"
         android:textColor="#111"
         android:textSize="17dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/id"
-        app:layout_constraintTop_toTopOf="@+id/id"
-        tools:text="Title: title" />
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title" />
 
     <TextView
         android:id="@+id/overview"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
         android:textColor="#111"
         android:textSize="15dp"
-        app:layout_constraintStart_toStartOf="@+id/id"
-        app:layout_constraintTop_toBottomOf="@+id/id"
-        tools:text="Overview: overview" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="Overview: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud " />
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="75sp"
         android:layout_height="100sp"
         android:contentDescription="@string/image_desc"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,24 +47,40 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:padding="3dp"
         android:textSize="13dp"
-        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintStart_toStartOf="@+id/overview"
+        app:layout_constraintTop_toTopOf="@+id/vote_average_text"
+        tools:text="Release date: 12/12/2000" />
+
+    <TextView
+        android:id="@+id/vote_average_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="3dp"
+        android:text="@string/vote_average"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/vote_average"
         app:layout_constraintTop_toBottomOf="@+id/overview"
-        tools:text="Release date" />
+        tools:text="Vote average:" />
 
     <TextView
         android:id="@+id/vote_average"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:padding="3dp"
+        android:layout_marginEnd="10dp"
+        android:padding="7dp"
         android:textSize="13dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/date"
-        app:layout_constraintTop_toBottomOf="@+id/overview"
-        tools:text="Vote count" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vote_average_text"
+        tools:text="10"
+        android:background="@drawable/textview_rounded"
+        android:paddingHorizontal="2dp"
+        android:textColor="#fff"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
