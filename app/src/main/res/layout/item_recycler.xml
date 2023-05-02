@@ -71,16 +71,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
+        android:background="@drawable/textview_rounded"
         android:padding="7dp"
+        android:paddingHorizontal="2dp"
+        android:textColor="#fff"
         android:textSize="13dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/vote_average_text"
-        tools:text="10"
-        android:background="@drawable/textview_rounded"
-        android:paddingHorizontal="2dp"
-        android:textColor="#fff"
-        />
+        tools:text="10" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
