@@ -31,5 +31,5 @@ fun List<MovieEntity>.mapToLocalMovie(): List<Movie> =
             voteAverage = entity.voteAverage,
             voteCount = entity.voteCount,
 
-            )
+        )
     }
