@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TitleStyle">
+        <item name="android:textColor">@color/text_color_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+    </style>
+
+    <style name="DescriptionStyle">
+        <item name="android:textColor">@color/white2</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/description_text_size</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:backgroundTint">@color/button_background</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+    </style>
+
+    <style name="ItemRecycler_TitleStyle">
+        <item name="android:textColor">@color/black2</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemRecycler_DescriptionStyle">
+        <item name="android:textColor">@color/black2</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ItemRecycler_VoteAverage">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

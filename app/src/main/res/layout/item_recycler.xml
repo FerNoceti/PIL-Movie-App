@@ -4,31 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginVertical="3dp"
     android:layout_marginBottom="3dp"
-    android:background="#eee"
+    android:background="@color/white2"
     android:padding="10dp"
     tools:context=".activity.MovieActivity">
 
     <TextView
         android:id="@+id/title"
+        style="@style/ItemRecycler_TitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:textColor="#111"
-        android:textSize="17dp"
-        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
     <TextView
         android:id="@+id/overview"
+        style="@style/ItemRecycler_DescriptionStyle"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="4dp"
-        android:textColor="#111"
-        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintTop_toBottomOf="@+id/title"
@@ -48,10 +46,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="3dp"
-        android:textSize="13dp"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/overview"
         app:layout_constraintTop_toTopOf="@+id/vote_average_text"
-        tools:text="Release date: 12/12/2000" />
+        tools:text="12/12/2000" />
 
     <TextView
         android:id="@+id/vote_average_text"
@@ -60,8 +58,7 @@
         android:layout_marginTop="10dp"
         android:padding="3dp"
         android:text="@string/vote_average"
-        android:textSize="13dp"
-        android:textStyle="bold"
+        android:textSize="13sp"
         app:layout_constraintEnd_toStartOf="@+id/vote_average"
         app:layout_constraintTop_toBottomOf="@+id/overview"
         tools:text="Vote average:" />
@@ -70,16 +67,12 @@
         android:id="@+id/vote_average"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/textview_rounded"
         android:padding="7dp"
-        android:paddingHorizontal="2dp"
-        android:textColor="#fff"
-        android:textSize="13dp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/vote_average_text"
         tools:text="10" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

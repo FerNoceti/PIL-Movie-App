@@ -5,11 +5,20 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FF000000</color>}
+    <color name="black2">#111</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white2">#EEEEEE</color>
 
     <color name="red">#FF0000</color>
     <color name="orange">#ffa500</color>
     <color name="yellow">#FFEB3B</color>
     <color name="green">#4CAF50</color>
+
+    <color name="background_blue">#032541</color>
+    <color name="background_blue2">#0F3453</color>
+
+    <color name="text_color_title">#0cb5df</color>
+    <color name="button_text_color">#034453</color>
+    <color name="button_background">#88CDA5</color>
 </resources>

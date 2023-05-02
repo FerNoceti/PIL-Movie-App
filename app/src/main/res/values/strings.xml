@@ -1,23 +1,16 @@
 <resources>
-    <string name="app_name">MovieApp</string>
-    <string name="test">TEST</string>
+    <string name="app_name">Movie App</string>
 
-    <string name="card_id">ID: %1$s</string>
-    <string name="card_title">Title: %1$s</string>
     <string name="card_overview">Overview: %1$s</string>
-    <string name="card_popularity">Popularity: %1$s</string>
-    <string name="card_vote_count">Vote Count: %1$s</string>
-    <string name="card_vote_average">Vote Average: %1$s</string>
-    <string name="card_release_date">Release Date: %1$s</string>
     <string name="card_poster_path">https://image.tmdb.org/t/p/original%1$s</string>
 
-    <string name="title">Most Popular Movies</string>
-    <string name="show_all">Show Most Popular Movies</string>
-    <string name="clear">Clear</string>
-    <string name="search_with_page">search with page</string>
-    <string name="enter_a_number">Enter a number</string>
+    <string name="description">This app shows the most popular movies from the TMDB API.</string>
+    <string name="button_menu_show">Show Most Popular Movies</string>
+
+    <string name="title_movie">Most Popular Movies</string>
+    <string name="button_movie_back">Back</string>
+
+
     <string name="image_desc">Image of the movie</string>
-    <string name="description">Description</string>
-    <string name="button_movies_text">Back</string>
     <string name="vote_average">Vote average:</string>
 </resources>
