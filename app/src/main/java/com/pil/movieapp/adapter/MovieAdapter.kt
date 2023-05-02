@@ -27,22 +27,29 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
         fun bind(movie: Movie) {
             binding.title.text = movie.title
             binding.overview.text = itemView.context.getString(R.string.card_overview, movie.overview)
-            binding.date.text = itemView.context.getString(R.string.card_release_date, movie.releaseDate)
+            binding.date.text = getDateFormat(movie.releaseDate)
             binding.voteAverage.text = movie.voteAverage.toString()
-            binding.voteAverage.setTextColor(calculateColor(movie.voteAverage))
+            binding.voteAverage.setTextColor(getColor(movie.voteAverage))
 
             Glide.with(itemView.context)
                 .load(itemView.context.getString(R.string.card_poster_path, movie.posterPath))
                 .into(binding.image)
         }
 
-        private fun calculateColor(voteCount: Float): Int {
+        private fun getColor(voteCount: Float): Int {
             return when {
                 voteCount < 4 -> itemView.context.getColor(R.color.red)
                 voteCount < 6 -> itemView.context.getColor(R.color.orange)
                 voteCount < 7 -> itemView.context.getColor(R.color.yellow)
                 else -> itemView.context.getColor(R.color.green)
             }
+        }
+
+        private fun getDateFormat(date: String): String {
+            val year = date.substring(0, 4)
+            val month = date.substring(5, 7)
+            val day = date.substring(8, 10)
+            return "$day/$month/$year"
         }
     }
 }
