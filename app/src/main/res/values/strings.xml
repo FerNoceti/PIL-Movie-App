@@ -6,7 +6,7 @@
 
     <string name="description">This app shows the most popular movies from the TMDB API.</string>
     <string name="button_menu_show">Show Most Popular Movies</string>
-    <string name="error">Error, check your connection</string>
+    <string name="empty">No movies were found, check your connection or try again</string>
 
     <string name="title_movie">Most Popular Movies</string>
     <string name="button_movie_back">Back</string>

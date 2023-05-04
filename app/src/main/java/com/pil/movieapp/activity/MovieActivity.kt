@@ -1,6 +1,7 @@
 package com.pil.movieapp.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,17 +60,14 @@ class MovieActivity : AppCompatActivity() {
     private fun updateUI(data: MovieViewModel.MainData) {
         when (data.status) {
             MovieViewModel.MainStatus.INITIAL -> {
-                binding.recycler.adapter = null
-                binding.recycler.layoutManager = null
             }
             MovieViewModel.MainStatus.SHOW_INFO -> {
-                binding.recycler.layoutManager = LinearLayoutManager(this)
                 binding.recycler.adapter = MovieAdapter(data.movies)
+                binding.recycler.layoutManager = LinearLayoutManager(this)
             }
-            MovieViewModel.MainStatus.ERROR -> {
-                // TODO: show error
-                binding.recycler.adapter = null
-                binding.recycler.layoutManager = null
+            MovieViewModel.MainStatus.EMPTY -> {
+                binding.recycler.visibility = View.GONE
+                binding.empty.visibility = View.VISIBLE
             }
             MovieViewModel.MainStatus.GO_BACK -> {
                 finish()
