@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pil.movieapp.databinding.ActivityMainBinding
 import com.pil.movieapp.mvvm.viewmodel.MenuViewModel
+import com.pil.movieapp.util.ErrorDialog
 
 class MenuActivity : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class MenuActivity : AppCompatActivity() {
         viewModel.state.observe(this) { updateUI(it) }
 
         binding.button.setOnClickListener { viewModel.buttonPressed() }
+        binding.buttonError.setOnClickListener { viewModel.buttonErrorPressed(this) }
     }
 
     private fun updateUI(state: MenuViewModel.MenuStates) {

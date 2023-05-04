@@ -10,8 +10,13 @@
 
     <string name="title_movie">Most Popular Movies</string>
     <string name="button_movie_back">Back</string>
-
+    <string name="button_error">Make an Error</string>
 
     <string name="image_desc">Image of the movie</string>
     <string name="vote_average">Vote average:</string>
+
+    <string name="error_title">ERROR</string>
+    <string name="error_description">This is an error test</string>
+    <string name="OK">OK</string>
+
 </resources>

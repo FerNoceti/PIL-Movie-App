@@ -1,14 +1,11 @@
 package com.pil.movieapp.mvvm.contract
 
-interface MenuContract {
-    interface View {
-        fun showLoading()
-        fun hideLoading()
-        fun showError(message: String)
-    }
+import android.content.Context
 
+interface MenuContract {
     interface ViewModel {
 
         fun buttonPressed()
+        fun buttonErrorPressed(context: Context)
     }
 }
