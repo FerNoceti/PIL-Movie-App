@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pil.movieapp.databinding.ActivityMainBinding
 import com.pil.movieapp.mvvm.viewmodel.MenuViewModel
-import com.pil.movieapp.util.ErrorDialog
 
 class MenuActivity : AppCompatActivity() {
 

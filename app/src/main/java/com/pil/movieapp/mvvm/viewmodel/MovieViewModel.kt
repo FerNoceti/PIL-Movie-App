@@ -12,7 +12,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieViewModel(private val model: MovieContract.Model) : ViewModel(), MovieContract.ViewModel {
+class MovieViewModel(private val model: MovieContract.Model) : ViewModel(),
+    MovieContract.ViewModel {
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
     override fun getValue(): LiveData<MainData> = mutableLiveData
@@ -22,7 +23,7 @@ class MovieViewModel(private val model: MovieContract.Model) : ViewModel(), Movi
             withContext(Dispatchers.IO) { model.getMovies() }.let { result ->
                 when (result) {
                     is CoroutineResult.Success -> {
-                        if (result.data.isEmpty()){
+                        if (result.data.isEmpty()) {
                             mutableLiveData.value = MainData(MainStatus.EMPTY, emptyList())
                         } else {
                             mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)

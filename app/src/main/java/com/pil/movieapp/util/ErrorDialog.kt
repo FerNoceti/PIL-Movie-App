@@ -6,7 +6,7 @@ import com.pil.movieapp.R
 
 class ErrorDialog {
     companion object {
-        fun show(context: Context,title: String, message: String) {
+        fun show(context: Context, title: String, message: String) {
             AlertDialog.Builder(context)
                 .setTitle(title)
                 .setMessage(message)
