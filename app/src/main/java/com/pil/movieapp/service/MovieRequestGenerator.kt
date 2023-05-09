@@ -6,13 +6,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object MovieRequestGenerator {
-    private const val API_EXERCISES_URL = "https://api.themoviedb.org/3/"
+    private const val API_MOVIES_URL = "https://api.themoviedb.org/3/"
     private const val API_KEY = "9bafc3601544aaecd7821f666201d894"
 
     private val httpClient = OkHttpClient.Builder()
 
     private val builder = Retrofit.Builder()
-        .baseUrl(API_EXERCISES_URL)
+        .baseUrl(API_MOVIES_URL)
         .addConverterFactory(GsonConverterFactory.create())
 
     fun <S> createService(serviceClass: Class<S>): S {
