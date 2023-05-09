@@ -12,7 +12,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieViewModel(private val model: MovieContract.Model) : ViewModel(),
+class MovieViewModel(private val model: MovieContract.Model) :
+    ViewModel(),
     MovieContract.ViewModel {
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()

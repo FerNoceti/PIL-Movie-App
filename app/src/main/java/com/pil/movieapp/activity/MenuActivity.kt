@@ -17,7 +17,7 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.state.observe(this) { updateUI(it) }
+        viewModel.getValue().observe(this) { updateUI(it) }
 
         binding.button.setOnClickListener { viewModel.buttonPressed() }
         binding.buttonError.setOnClickListener { viewModel.buttonErrorPressed(this) }
