@@ -59,8 +59,6 @@ class MovieActivity : AppCompatActivity() {
 
     private fun updateUI(data: MovieViewModel.MainData) {
         when (data.status) {
-            MovieViewModel.MainStatus.INITIAL -> {
-            }
             MovieViewModel.MainStatus.SHOW_INFO -> {
                 binding.recycler.adapter = MovieAdapter(data.movies)
                 binding.recycler.layoutManager = LinearLayoutManager(this)

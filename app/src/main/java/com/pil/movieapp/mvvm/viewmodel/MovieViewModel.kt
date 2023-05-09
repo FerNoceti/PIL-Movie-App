@@ -47,7 +47,6 @@ class MovieViewModel(private val model: MovieContract.Model) :
     )
 
     enum class MainStatus {
-        INITIAL,
         SHOW_INFO,
         EMPTY,
         GO_BACK,
