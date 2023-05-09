@@ -1,27 +1,42 @@
 package com.pil.movieapp.mvvm.viewmodel
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.pil.movieapp.mvvm.contract.MovieContract
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.StandardTestDispatcher
+import com.pil.movieapp.database.MovieDataBase
+import com.pil.movieapp.service.MovieService
+import com.pil.movieapp.service.model.Movie
+import com.pil.movieapp.service.model.MovieList
+import io.mockk.mockk
 import org.junit.Before
-import org.junit.Rule
-import org.junit.rules.TestRule
+import org.junit.Test
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class MovieViewModelTest {
 
-    private val testDispatcher = StandardTestDispatcher()
-    private lateinit var movieViewModel: MovieViewModel
-    private lateinit var movieModel: MovieViewModel
-
-
-    @get:Rule
-    var rule: TestRule = InstantTaskExecutorRule()
-
-    private lateinit var viewModel: MovieContract.ViewModel
+    var movieService: MovieService = mockk()
+    var db: MovieDataBase = mockk()
+    private val movies: List<Movie> = listOf(
+        Movie(
+            1,
+            "title",
+            "overview",
+            "posterPath",
+            5.0f,
+            "path",
+            "releaseDate",
+            "Title",
+            1.0f,
+            1,
+        ),
+    )
+    private lateinit var movieList: MovieList
 
     @Before
     fun setUp() {
+        movieList = MovieList(movies, 1)
+    }
+
+    @Test
+    fun `when getMovies is called, then return a list of movies`() {
+        // Given
+        // When
+        // Then
     }
 }
