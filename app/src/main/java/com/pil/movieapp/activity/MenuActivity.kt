@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pil.movieapp.R
 import com.pil.movieapp.databinding.ActivityMainBinding
 import com.pil.movieapp.mvvm.viewmodel.MenuViewModel
-import com.pil.movieapp.util.ErrorDialog
+import com.pil.movieapp.util.Dialog
 
 class MenuActivity : AppCompatActivity() {
 
@@ -34,12 +34,18 @@ class MenuActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             MenuViewModel.MenuStates.ERROR -> {
-                ErrorDialog.show(
-                    this,
-                    this.getString(R.string.error_title),
-                    this.getString(R.string.error_description),
-                )
+
             }
+        }
+    }
+
+    private fun throwError() {
+        var dialog: Dialog = Dialog()
+        try {
+            2 % 0
+        }
+        catch (e: Exception) {
+            Dialog().show(supportFragmentManager, "Dialog")
         }
     }
 }

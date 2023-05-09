@@ -21,4 +21,10 @@
     <color name="text_color_title">#0cb5df</color>
     <color name="button_text_color">#034453</color>
     <color name="button_background">#88CDA5</color>
+
+    <color name="dialog_background">#EEEEEE</color>
+    <color name="dialog_text_color_title">#0cb5df</color>
+    <color name="dialog_text_color_description">#034453</color>
+    <color name="dialog_button_text_color">#034453</color>
+    <color name="dialog_button_background">#6FFFAC</color>
 </resources>

@@ -39,4 +39,25 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="DialogTitleStyle">
+        <item name="android:textColor">@color/dialog_text_color_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/title_textError_size</item>
+    </style>
+
+    <style name="DialogDescriptionStyle">
+        <item name="android:textColor">@color/dialog_text_color_description</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/description_textError_size</item>
+    </style>
+
+    <style name="DialogButtonStyle">
+        <item name="android:textColor">@color/dialog_button_text_color</item>
+        <item name="android:backgroundTint">@color/dialog_button_background</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/dialogButton_text_size</item>
+    </style>
+
 </resources>
