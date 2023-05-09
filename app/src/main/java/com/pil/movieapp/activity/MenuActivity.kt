@@ -3,8 +3,10 @@ package com.pil.movieapp.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.pil.movieapp.R
 import com.pil.movieapp.databinding.ActivityMainBinding
 import com.pil.movieapp.mvvm.viewmodel.MenuViewModel
+import com.pil.movieapp.util.ErrorDialog
 
 class MenuActivity : AppCompatActivity() {
 
@@ -20,7 +22,7 @@ class MenuActivity : AppCompatActivity() {
         viewModel.getValue().observe(this) { updateUI(it) }
 
         binding.button.setOnClickListener { viewModel.buttonPressed() }
-        binding.buttonError.setOnClickListener { viewModel.buttonErrorPressed(this) }
+        binding.buttonError.setOnClickListener { viewModel.buttonErrorPressed() }
     }
 
     private fun updateUI(state: MenuViewModel.MenuStates) {
@@ -30,6 +32,13 @@ class MenuActivity : AppCompatActivity() {
             MenuViewModel.MenuStates.GO_TO_MOVIE_SCREEN -> {
                 val intent = Intent(this, MovieActivity::class.java)
                 startActivity(intent)
+            }
+            MenuViewModel.MenuStates.ERROR -> {
+                ErrorDialog.show(
+                    this,
+                    this.getString(R.string.error_title),
+                    this.getString(R.string.error_description),
+                )
             }
         }
     }

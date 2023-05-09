@@ -15,17 +15,12 @@ class MenuViewModel : ViewModel(), MenuContract.ViewModel {
         return mutableLiveData
     }
 
-
     override fun buttonPressed() {
         mutableLiveData.value = MenuStates.GO_TO_MOVIE_SCREEN
     }
 
-    override fun buttonErrorPressed(context: Context) {
-        ErrorDialog.show(
-            context,
-            context.getString(R.string.error_title),
-            context.getString(R.string.error_description),
-        )
+    override fun buttonErrorPressed() {
+        mutableLiveData.value = MenuStates.ERROR
     }
 
     init {
@@ -35,5 +30,6 @@ class MenuViewModel : ViewModel(), MenuContract.ViewModel {
     enum class MenuStates {
         INIT,
         GO_TO_MOVIE_SCREEN,
+        ERROR,
     }
 }
