@@ -16,4 +16,8 @@
     <string name="vote_average">Vote average:</string>
 
     <string name="OK">OK</string>
+
+    <string name="error_title">Error</string>
+    <string name="error_message">An error occurred, please try again</string>
+
 </resources>

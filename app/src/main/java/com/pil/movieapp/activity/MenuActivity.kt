@@ -34,18 +34,11 @@ class MenuActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             MenuViewModel.MenuStates.ERROR -> {
-
+                Dialog.newInstance(
+                    getString(R.string.error_title),
+                    getString(R.string.error_message),
+                ).show(supportFragmentManager, "dialog")
             }
-        }
-    }
-
-    private fun throwError() {
-        var dialog: Dialog = Dialog()
-        try {
-            2 % 0
-        }
-        catch (e: Exception) {
-            Dialog().show(supportFragmentManager, "Dialog")
         }
     }
 }
