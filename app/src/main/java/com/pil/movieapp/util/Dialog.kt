@@ -5,16 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.pil.movieapp.R
 import com.pil.movieapp.databinding.DialogBinding
-import javax.annotation.Nullable
 
 class Dialog : DialogFragment() {
 
     private var _binding: DialogBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = DialogBinding.inflate(inflater, container, false)
         val rootView = binding.root
 

@@ -30,6 +30,7 @@ class MovieViewModel(private val model: MovieContract.Model) :
                             mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
                         }
                     }
+
                     is CoroutineResult.Failure -> {
                     }
                 }

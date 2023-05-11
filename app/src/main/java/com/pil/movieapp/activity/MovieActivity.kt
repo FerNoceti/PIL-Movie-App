@@ -63,10 +63,12 @@ class MovieActivity : AppCompatActivity() {
                 binding.recycler.adapter = MovieAdapter(data.movies)
                 binding.recycler.layoutManager = LinearLayoutManager(this)
             }
+
             MovieViewModel.MainStatus.EMPTY -> {
                 binding.recycler.visibility = View.GONE
                 binding.empty.visibility = View.VISIBLE
             }
+
             MovieViewModel.MainStatus.GO_BACK -> {
                 finish()
             }

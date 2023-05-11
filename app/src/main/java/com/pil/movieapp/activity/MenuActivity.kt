@@ -29,10 +29,12 @@ class MenuActivity : AppCompatActivity() {
         when (state) {
             MenuViewModel.MenuStates.INIT -> {
             }
+
             MenuViewModel.MenuStates.GO_TO_MOVIE_SCREEN -> {
                 val intent = Intent(this, MovieActivity::class.java)
                 startActivity(intent)
             }
+
             MenuViewModel.MenuStates.ERROR -> {
                 Dialog.newInstance(
                     getString(R.string.error_title),
